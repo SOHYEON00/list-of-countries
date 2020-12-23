@@ -6,7 +6,7 @@ import SearchBar from "./CountryListPage/SearchBar";
 import NewCountryForm from "./CountryListPage/NewCountryForm";
 import CountryListTable from "./CountryListPage/CountryListTable";
 
-function CountryListPage({newCountry, countries}) {
+function CountryListPage({newCountry}) {
 
     useEffect(() => {
         axios.get('https://restcountries.eu/rest/v2/all?fields=alpha2Code;capital;name;region;callingCodes')
@@ -17,20 +17,16 @@ function CountryListPage({newCountry, countries}) {
             .catch(e => { console.error(e); })
         
     }, [])
-    
+
     return (
         <>
             <SearchBar />
             <NewCountryForm />
-            <CountryListTable country={countries}/>  
+            <CountryListTable/>  
         </>
     )
 
 }
-
-const mapStateToProps = (state) => {
-    return {countries : state}; //store에서 받아온 toDos는 HOME컴포넌트의 props이 되었다.
-  }
   
 function mapDispatchToProps(dispatch){
 
@@ -39,4 +35,4 @@ function mapDispatchToProps(dispatch){
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CountryListPage)
+export default connect(null, mapDispatchToProps)(CountryListPage)

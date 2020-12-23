@@ -1,18 +1,29 @@
-import React from 'react'
-import {connect} from "react-redux";
-// {name, alphaCode, callingCode, capital,region,key  }
-function CountryRow( {name, alphaCode, callingCode, capital,region}) {
-  
-    return (
-        <tr>
-            <td><button>DEL</button></td>
-            <td>{name}</td>
-            <td>{alphaCode}</td>
-            <td>{callingCode}</td>
-            <td>{capital}</td>
-            <td>{region}</td>
-        </tr>
-    )
+import React from "react";
+import { connect } from "react-redux";
+import { actionCreators } from "../../../store";
+
+function CountryRow({ name, alpha2Code, callingCodes, capital, region, deleteRow}) {
+    
+  return (
+    <tr>
+      <td>
+        <button onClick={deleteRow}>DEL</button>
+      </td>
+      <td>{name}</td>
+      <td>{alpha2Code}</td>
+      <td>{callingCodes}</td>
+      <td>{capital}</td>
+      <td>{region}</td>
+    </tr>
+  );
 }
 
-export default CountryRow;
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    deleteRow: () => {
+        console.log(ownProps);
+      dispatch(actionCreators.deleteRow(ownProps.id));
+    },
+  };
+};
+export default connect(null, mapDispatchToProps)(CountryRow);

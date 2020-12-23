@@ -6,8 +6,7 @@ function CategoryRow({subject}) {
     return (
         <th>
             {subject}
-            <button>ASCE</button>
-            <button>DESC</button>
+            <SortingButton />
         </th>
     )
 }

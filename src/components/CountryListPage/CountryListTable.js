@@ -4,28 +4,30 @@ import {actionCreators} from "../../store";
 import CountryRow from "./CountryListTable/CountryRow";
 import CategoryRow from "./CountryListTable/CategoryRow";
 
-function CountryListTable({country}) {
+function CountryListTable({countries}) {
     let categoryList = [];
     let countryList = [];
 
-    if(country.length > 0){
-      categoryList = Object.keys(country[0][0]).map((e,i) => {
-          console.log(e);
+    if(!isNaN(countries) || countries !== undefined){
+        if(countries.length > 0){
+
+      categoryList = Object.keys(countries[0]).map((e,i) => {
           return <CategoryRow subject={e} key={i} />
       });
-      countryList = country[0].map((e,i) => {
+
+      countryList = countries.map((e,i) => {
              return <CountryRow 
-                name={e.name} 
-                alphaCode={e.alpha2Code} 
-                callingCode={e.callingCode} 
-                capital={e.capital} 
-                region={e.region} 
+                {...e}
+                // name={e.name} 
+                // alphaCode={e.alpha2Code} 
+                // callingCode={e.callingCode} 
+                // capital={e.capital} 
+                // region={e.region} 
+                id={i}
                 key={i}
                 />
       })
-    }
-    console.log(categoryList);
-
+    } }
     return (
         <div>
             <table>
@@ -43,9 +45,13 @@ function CountryListTable({country}) {
     )
 }
 
-// function mapStateToProps(state, props) {
-//     return { country: state};
-// }
+const mapStateToProps = (state) => {
+    //초기 data가 이중배열이므로 검사
+    if(state.length === 1) { //초기 데이터 
+         return {countries: state[0]};
+    } else { //state가 변환된 후 
+        return {countries: state};
+    }
+}
 
-
-export default CountryListTable;
+export default connect(mapStateToProps)(CountryListTable);
