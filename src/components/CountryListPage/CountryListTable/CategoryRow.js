@@ -2,7 +2,7 @@ import React from 'react';
 import SortingButton from "./SortingButton";
 
 function CategoryRow({subject}) {
-    console.log(subject);
+
     return (
         <th>
             {subject}

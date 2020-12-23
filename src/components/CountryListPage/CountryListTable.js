@@ -6,12 +6,23 @@ import CategoryRow from "./CountryListTable/CategoryRow";
 
 function CountryListTable({country}) {
     let categoryList = [];
+    let countryList = [];
 
     if(country.length > 0){
       categoryList = Object.keys(country[0][0]).map((e,i) => {
           console.log(e);
           return <CategoryRow subject={e} key={i} />
       });
+      countryList = country[0].map((e,i) => {
+             return <CountryRow 
+                name={e.name} 
+                alphaCode={e.alpha2Code} 
+                callingCode={e.callingCode} 
+                capital={e.capital} 
+                region={e.region} 
+                key={i}
+                />
+      })
     }
     console.log(categoryList);
 
@@ -24,8 +35,9 @@ function CountryListTable({country}) {
                         {categoryList}
                     </tr>
                 </thead>
-
-                <tbody></tbody>
+                <tbody>
+                {countryList}
+                </tbody>
             </table>
         </div>
     )
