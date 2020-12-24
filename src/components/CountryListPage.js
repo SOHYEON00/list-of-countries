@@ -1,22 +1,16 @@
-import React, {useEffect, useState} from 'react';
-import axios from "axios";
+import React, {useEffect} from 'react';
 import {connect} from "react-redux";
-import {actionCreators} from "../store";
+import {getCountries} from "../store/module/tableReducers";
 import SearchBar from "./CountryListPage/SearchBar";
 import NewCountryForm from "./CountryListPage/NewCountryForm";
 import CountryListTable from "./CountryListPage/CountryListTable";
 
-function CountryListPage({newCountry}) {
+function CountryListPage({getNewList}) {
 
+  
     useEffect(() => {
-        axios.get('https://restcountries.eu/rest/v2/all?fields=alpha2Code;capital;name;region;callingCodes')
-            .then((response) => {
-                const data = response.data;
-                newCountry(data);
-            })
-            .catch(e => { console.error(e); })
-        
-    }, [])
+        getNewList();
+    }, []);
 
     return (
         <>
@@ -27,12 +21,9 @@ function CountryListPage({newCountry}) {
     )
 
 }
-  
-function mapDispatchToProps(dispatch){
 
-    return {
-        newCountry : (Countries) => { dispatch(actionCreators.getNewList(Countries))}
-    }
+
+function mapDispatchToProps(dispatch) {
+    return { getNewList : () => {dispatch(getCountries())} };
 }
-
-export default connect(null, mapDispatchToProps)(CountryListPage)
+export default connect(null, mapDispatchToProps)(CountryListPage);

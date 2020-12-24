@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { actionCreators } from "../../../store";
+import { deleteData } from "../../../store/module/tableReducers";
 
 function CountryRow({ name, alpha2Code, callingCodes, capital, region, deleteRow}) {
     
@@ -20,10 +20,7 @@ function CountryRow({ name, alpha2Code, callingCodes, capital, region, deleteRow
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    deleteRow: () => {
-        console.log(ownProps);
-      dispatch(actionCreators.deleteRow(ownProps.id));
-    },
+    deleteRow: () => { dispatch(deleteData(ownProps.id));},
   };
 };
 export default connect(null, mapDispatchToProps)(CountryRow);
