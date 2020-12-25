@@ -1,8 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 import CountryRow from "./CountryListTable/CountryRow";
 import CategoryRow from "./CountryListTable/CategoryRow";
 
-function CountryListTable({ loading, error, list}) {
+function CountryListTable({ loading, error, list, searchStatus, filteredData}) {
+  
   let arrCategory = []; //카테고리 출력용 배열
   let arrCountry = []; //나라 출력용 배열
 
@@ -12,18 +13,31 @@ function CountryListTable({ loading, error, list}) {
       return <div>Sorry, fail to get the list of countries.</div>;
     }
 
-    //검색결과가 없는 경우
-    if(list.length === 0) {
-      return <div>There's no result.</div> 
+    if(searchStatus){
+      //검색결과가 없는 경우
+      if(filteredData.length === 0) {
+        return <div>There's no result.</div> 
+      }
+      else{
+        arrCategory = Object.keys(filteredData[0]).map((e, i) => {
+          return <CategoryRow subject={e} key={i} />;
+        });
+    
+        arrCountry = filteredData.map((e, i) => {
+          return <CountryRow {...e} id={i} key={i} />;
+        });
+      }
     }
- 
-    arrCategory = Object.keys(list[0]).map((e, i) => {
+    else{
+      arrCategory = Object.keys(list[0]).map((e, i) => {
       return <CategoryRow subject={e} key={i} />;
     });
 
     arrCountry = list.map((e, i) => {
       return <CountryRow {...e} id={i} key={i} />;
     });
+    }
+    
   }
   return (
     <div>

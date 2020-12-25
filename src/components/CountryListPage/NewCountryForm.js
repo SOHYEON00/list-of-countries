@@ -1,9 +1,39 @@
 import React from 'react'
 
 function NewCountryForm() {
+
+    const formTextHandler = (e) => {
+
+    }
+    const formArrayHandler = (e) => {
+
+    }
+    const formSubmitHandler = (e) => {
+        e.preventDefault();
+    }
+
     return (
         <div>
-            New Country add
+            <form>
+            <p>
+                    <label>Name</label>
+                    <input type="text" onChange={formTextHandler}></input>
+
+                    <label>Alpha2Code</label>
+                    <input type="text" onChange={formTextHandler}></input>
+
+                    <label>CallingCodes</label>
+                    <input type="number" onChange={formArrayHandler}></input>
+
+                    <label>Capital</label>
+                    <input type="text" onChange={formTextHandler}></input>
+
+                    <label>Region</label>
+                    <input type="text" onChange={formTextHandler}></input>
+            </p>
+                
+                <input type="submit" onSubmit={formSubmitHandler} />
+            </form>
         </div>
     )
 }

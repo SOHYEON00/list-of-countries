@@ -109,19 +109,7 @@ export default function CountryReducer(state = initialState, action) {
         category: action.category,
         direction: action.direction
       };
-      case SEARCH:
-        return {
-            ...state,
-            data: state.data,
-            search: true,
-            keyword: action.keyword
-        };
-    case FILTER_BY_KEYWORD:
-        return {
-            ...state,
-            data: action.data,
-            search: true,
-        }
+  
     default:
       return state;
   }
