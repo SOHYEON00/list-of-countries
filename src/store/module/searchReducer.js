@@ -13,6 +13,7 @@ export default function searchReducer(state=initialState, action) {
         case SEARCH:
             return {
                 ...state,
+                data: action.data,
                 search: true,
                 keyword: action.keyword
             };

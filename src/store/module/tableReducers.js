@@ -2,7 +2,7 @@ import axios from "axios";
 
 /* action types */
 
-const DELETE_ROW = "DELETE";
+const DELETE_ROW_NORMAL = "DELETE_ROW_NORMAL";
 
 const GET_LIST = "GET_LIST";
 const GET_LIST_SUCCESS = "GET_LIST_SUCCESS";
@@ -16,8 +16,8 @@ const SEARCH = "SEARCH";
 
 /* actions */
 
-export const deleteData = (id) => {
-  return { type: DELETE_ROW, id: parseInt(id) };
+export const deleteDataNormal = (name) => {
+  return { type: DELETE_ROW_NORMAL, name: (name) };
 };
 
 export const sortingListASCE = (category, sortedArray) => {
@@ -82,10 +82,11 @@ export default function CountryReducer(state = initialState, action) {
         data: [],
         error: null,
       };
-    case DELETE_ROW:
+    case DELETE_ROW_NORMAL:
       return {
         ...state,
-        data: state.data.filter((e, i) => i !== action.id),
+        deletedId: action.id,
+        data: state.data.filter((e) => e.name !== action.name),
       };
     case SORTING_LIST_ASCE:
       return {

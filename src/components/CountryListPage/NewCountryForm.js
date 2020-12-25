@@ -15,7 +15,7 @@ function NewCountryForm() {
     return (
         <div>
             <form>
-            <p>
+         
                     <label>Name</label>
                     <input type="text" onChange={formTextHandler}></input>
 
@@ -30,8 +30,7 @@ function NewCountryForm() {
 
                     <label>Region</label>
                     <input type="text" onChange={formTextHandler}></input>
-            </p>
-                
+  
                 <input type="submit" onSubmit={formSubmitHandler} />
             </form>
         </div>

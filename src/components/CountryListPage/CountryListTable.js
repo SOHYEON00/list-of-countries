@@ -44,7 +44,7 @@ function CountryListTable({ loading, error, list, searchStatus, keyword }) {
     });
 
     arrCountry = printList.map((e, i) => {
-      return <CountryRow {...e} id={i} key={i} />;
+      return <CountryRow {...e} key={i} />;
     });
   }
   return (
