@@ -1,13 +1,20 @@
 import axios from "axios";
 
+/* action types */
+
 const DELETE_ROW = "DELETE";
+
 const GET_LIST = "GET_LIST";
 const GET_LIST_SUCCESS = "GET_LIST_SUCCESS";
 const GET_LIST_ERROR = "GET_LIST_ERROR";
+
 const SORTING_LIST_ASCE = "SORTING_LIST_ASCE";
 const SORTING_LIST_DESC = "SORTING_LIST_DESC";
+
 const SEARCH = "SEARCH";
 const FILTER_BY_KEYWORD = "FILTER_BY_KEYWORD";
+
+/* actions */
 
 export const deleteData = (id) => {
   return { type: DELETE_ROW, id: parseInt(id) };
@@ -30,8 +37,6 @@ export const filterByKeword = (array) => {
   return {type: FILTER_BY_KEYWORD, data: array}
 }
 
-
-
 export const getCountries = () => async (dispatch) => {
   dispatch({ type: GET_LIST }); // 요청 시작
   try {
@@ -46,6 +51,9 @@ export const getCountries = () => async (dispatch) => {
     dispatch({ type: GET_LIST_ERROR, error: err });
   }
 };
+
+
+/* reducer */
 
 const initialState = {
   loading: false,

@@ -6,7 +6,7 @@ function CountryRow({ name, alpha2Code, callingCodes, capital, region, deleteRow
   //callingCode가 배열이므로
   //[0].value
   //[1].value 식으로 출력
-  const arrCallingCode = callingCodes.map((e,i) => {console.log(e); return <p key={i}>{e}</p>});
+  const arrCallingCode = callingCodes.map((e,i) => {return <p key={i}>{e}</p>});
 
   return (
     <tr>
