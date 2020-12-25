@@ -7,7 +7,7 @@ import CountryListTable from "./CountryListPage/CountryListTable";
 
 function CountryListPage({getNewList}) {
     
-    const [Keyword, setKeyword] = useState("");
+    const [Keyword, setKeyword] = useState(""); //검색어 상태
     const debouncedHandleChange = (target) => {
         setKeyword(target);
       };
@@ -23,18 +23,13 @@ function CountryListPage({getNewList}) {
         })
       );
 
-
-
     useEffect(() => {
-        getNewList();
+        getNewList(); //api axios
     }, []);
 
     return (
         <>
-            <SearchBar 
-                state={data}
-                debouncedHandleChange={debouncedHandleChange} 
-                keyword={Keyword}/>
+            <SearchBar debouncedHandleChange={debouncedHandleChange} />
             <NewCountryForm />
             <CountryListTable loading={loading} error={error} list={data} searchStatus={searchStatus} keyword={currentKeyword}  />  
         </>

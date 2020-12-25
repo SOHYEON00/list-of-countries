@@ -29,6 +29,7 @@ function mapStateToProps(state) {
   return { dataList: state.CountryReducer.data}
 }
 
+//
 function mapDispatchToProps(dispatch,props) {
   const sortByCategory = (category,oriState) => {
       

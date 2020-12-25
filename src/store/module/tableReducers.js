@@ -12,7 +12,7 @@ const SORTING_LIST_ASCE = "SORTING_LIST_ASCE";
 const SORTING_LIST_DESC = "SORTING_LIST_DESC";
 
 const SEARCH = "SEARCH";
-const FILTER_BY_KEYWORD = "FILTER_BY_KEYWORD";
+
 
 /* actions */
 
@@ -32,10 +32,6 @@ export const getKeyword = (keyword) => {
   return { type: SEARCH, keyword: keyword}
 }
 
-//검색어로 필터링된 배열 리턴
-export const filterByKeword = (array) => {
-  return {type: FILTER_BY_KEYWORD, data: array}
-}
 
 export const getCountries = () => async (dispatch) => {
   dispatch({ type: GET_LIST }); // 요청 시작

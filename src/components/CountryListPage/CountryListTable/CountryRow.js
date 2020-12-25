@@ -3,6 +3,7 @@ import { connect} from "react-redux";
 import { deleteData } from "../../../store/module/tableReducers";
 
 function CountryRow({ name, alpha2Code, callingCodes, capital, region, deleteRow}) {
+  
   //callingCode가 배열이므로
   //[0].value
   //[1].value 식으로 출력
