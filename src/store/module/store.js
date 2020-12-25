@@ -1,5 +1,6 @@
 import { combineReducers } from "redux";
 import CountryReducer from "./tableReducers";
+import searchReducer from "./searchReducer";
 
 const rootReducer = combineReducers({
   CountryReducer
