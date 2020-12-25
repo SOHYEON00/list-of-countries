@@ -27,10 +27,10 @@ function SearchBar({state, debouncedHandleChange, keyword}) {
         debouncedHandle(e.currentTarget.value);
         dispatch(getKeyword(e.currentTarget.value));
          
-        //현재 입력값, state입력
-        const filtered = filteredByKeword(e.currentTarget.value, state);
+        // //현재 입력값, state입력
+        // const filtered = filteredByKeword(e.currentTarget.value, state);
     
-        dispatch(filterByKeword(filtered));
+        // dispatch(filterByKeword(filtered));
 
     };
     

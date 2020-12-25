@@ -8,27 +8,22 @@ import CountryListTable from "./CountryListPage/CountryListTable";
 function CountryListPage({getNewList}) {
     
     const [Keyword, setKeyword] = useState("");
-    const [Name, setName] = useState("");
-    const [Alpah2Code, setAlpah2Code] = useState("");
-    const [CallingCode, setCallingCode] = useState([]);
-    const [Capital, setCapital] = useState("");
-    const [Region, setRegion] = useState("");
-
-
     const debouncedHandleChange = (target) => {
         setKeyword(target);
       };
 
-    const { loading, error,data, search, searchData} = useSelector(
+    const { loading, error,data, searchStatus, currentKeyword} = useSelector(
         (state) => (
             {
           loading: state.CountryReducer.loading,
           data: state.CountryReducer.data,
           error: state.CountryReducer.error,
-          search: state.searchReducer.search,
-          searchData: state.searchReducer.data
+          searchStatus: state.CountryReducer.search,
+          currentKeyword: state.CountryReducer.keyword
         })
       );
+
+
 
     useEffect(() => {
         getNewList();
@@ -40,9 +35,8 @@ function CountryListPage({getNewList}) {
                 state={data}
                 debouncedHandleChange={debouncedHandleChange} 
                 keyword={Keyword}/>
-            <NewCountryForm 
-            />
-            <CountryListTable loading={loading} error={error} list={data} searchStatus={search} filteredData={searchData} />  
+            <NewCountryForm />
+            <CountryListTable loading={loading} error={error} list={data} searchStatus={searchStatus} keyword={currentKeyword}  />  
         </>
     )
 
