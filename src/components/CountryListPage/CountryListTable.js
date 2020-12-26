@@ -26,7 +26,7 @@ function CountryListTable({ loading, error, list, searchStatus, keyword }) {
   if (loading) {
     if (error) {
       //API와 통신했지만 오류난 경우
-      return <div>Sorry, fail to get the list of countries.</div>;
+      return <article>Sorry, fail to get the list of countries.</article>;
     }
 
     //검색어가 입력된 경우
@@ -35,7 +35,7 @@ function CountryListTable({ loading, error, list, searchStatus, keyword }) {
       if (printList.length === 0) {
         //검색결과가 없는 경우
         printList = list; //초기화
-        return <div> No result, plz try other.</div>; //결과없음 출력
+        return <article> No result, plz try other.</article>; //결과없음 출력
       }
     }
 
@@ -52,7 +52,7 @@ function CountryListTable({ loading, error, list, searchStatus, keyword }) {
       <table>
         <thead>
           <tr>
-            <th>DEL</th>
+            <th className="deleteBtn">DEL</th>
             {arrCategory}
           </tr>
         </thead>

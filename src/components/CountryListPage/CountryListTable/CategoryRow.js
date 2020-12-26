@@ -14,7 +14,7 @@ function CategoryRow({subject, dataList, actionDesc, actionAsce}) {
     }
 
     return (
-        <th>
+        <th className="tableContents">
             {subject}
             <p>
             <button onClick={asceBtn}>ASCE</button>

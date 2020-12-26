@@ -1,3 +1,54 @@
-.App {
-    background-color: aquamarine;
-  }
+header,main,table,form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%
+}
+/* form css */
+form {
+  width: 20%;
+}
+form div {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+form div label {
+  width: 40%;
+}
+
+.submitBtn {
+  margin: 1rem;
+  justify-content: center;
+}
+
+/* alert css */
+article {
+  width: 80%;
+  text-align: center;
+}
+
+/* table css */
+table{
+    width: 80%;
+    margin: 3rem;
+}
+thead, tbody {
+  width: 100%;
+  text-align: center;
+}
+
+th, td{
+  width: 20%;
+}
+
+.deleteBtn{
+  width: 10%;
+}
+
+.tableContents{
+  width: 21%;
+}
+
+

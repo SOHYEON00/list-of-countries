@@ -15,8 +15,8 @@ function SearchBar({debouncedHandleChange, keyword}) {
     
 
   return (
-    <div id="searchBar">
-      <input type="text" onChange={onKeywordHandler} />
+    <div id="searchBar"> 
+      <input type="text" onChange={onKeywordHandler} placeholder="Search Country" />
     </div>
   );
 }

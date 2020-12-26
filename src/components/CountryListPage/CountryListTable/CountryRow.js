@@ -11,8 +11,8 @@ function CountryRow({ name, alpha2Code, callingCodes, capital, region, deleteRow
 
   return (
     <tr>
-      <td>
-        <button onClick={deleteRow}>DEL</button>
+      <td className="deleteBtn">
+        <button onClick={deleteRow} >DEL</button>
       </td>
       <td>{name}</td>
       <td>{alpha2Code}</td>

@@ -69,7 +69,6 @@ const NewCountryForm = ({ actionAdd }) => {
                 <input
                   value={input.value}
                   onChange={input.onChange}
-                  placeholder="Country name"
                 />
                 {meta.error && meta.touched && <span>{meta.error}</span>}
               </div>
@@ -87,7 +86,6 @@ const NewCountryForm = ({ actionAdd }) => {
                 <input
                   value={input.value}
                   onChange={input.onChange}
-                  placeholder="..."
                 />
                 {meta.error && meta.touched && <span>{meta.error}</span>}
               </div>
@@ -124,7 +122,6 @@ const NewCountryForm = ({ actionAdd }) => {
                 <input
                   value={input.value}
                   onChange={input.onChange}
-                  placeholder="..."
                 />
                 {meta.error && meta.touched && <span>{meta.error}</span>}
               </div>
@@ -143,14 +140,13 @@ const NewCountryForm = ({ actionAdd }) => {
                 <input
                   value={input.value}
                   onChange={input.onChange}
-                  placeholder="..."
                 />
                 {meta.error && meta.touched && <span>{meta.error}</span>}
               </div>
             )}
           </Field>
 
-          <div>
+          <div className="submitBtn">
             <button type="submit">Submit</button>
           </div>
         </form>
