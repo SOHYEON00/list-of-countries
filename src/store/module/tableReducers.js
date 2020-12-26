@@ -13,6 +13,7 @@ const SORTING_LIST_DESC = "SORTING_LIST_DESC";
 
 const SEARCH = "SEARCH";
 
+const ADD_COUNTRY = "ADD_COUNTRY";
 
 /* actions */
 
@@ -30,6 +31,10 @@ export const sortingListDESC = (category, sortedArray) => {
 //keyword, search만 변경 후 기존 state 리턴
 export const getKeyword = (keyword) => {
   return { type: SEARCH, keyword: keyword}
+}
+
+export const addCountry = (countryInfo) => {
+  return { type: ADD_COUNTRY, new: countryInfo}
 }
 
 
@@ -82,6 +87,11 @@ export default function CountryReducer(state = initialState, action) {
         data: [],
         error: null,
       };
+    case ADD_COUNTRY:
+      return {
+        ...state,
+        data: state.data.concat(action.new)
+      }
     case DELETE_ROW_NORMAL:
       return {
         ...state,
@@ -111,6 +121,7 @@ export default function CountryReducer(state = initialState, action) {
             search: true,
             keyword: action.keyword
         };
+
   
     default:
       return state;

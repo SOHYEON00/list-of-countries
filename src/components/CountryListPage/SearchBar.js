@@ -15,9 +15,9 @@ function SearchBar({debouncedHandleChange, keyword}) {
     
 
   return (
-    <p>
+    <div id="searchBar">
       <input type="text" onChange={onKeywordHandler} />
-    </p>
+    </div>
   );
 }
 

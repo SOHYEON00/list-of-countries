@@ -48,7 +48,7 @@ function CountryListTable({ loading, error, list, searchStatus, keyword }) {
     });
   }
   return (
-    <div>
+    <main>
       <table>
         <thead>
           <tr>
@@ -58,7 +58,7 @@ function CountryListTable({ loading, error, list, searchStatus, keyword }) {
         </thead>
         <tbody>{arrCountry}</tbody>
       </table>
-    </div>
+    </main>
   );
 }
 

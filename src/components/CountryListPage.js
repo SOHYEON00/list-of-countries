@@ -29,8 +29,10 @@ function CountryListPage({getNewList}) {
 
     return (
         <>
-            <SearchBar debouncedHandleChange={debouncedHandleChange} />
-            <NewCountryForm />
+            <header>
+                <SearchBar debouncedHandleChange={debouncedHandleChange} />
+                <NewCountryForm />
+            </header>
             <CountryListTable loading={loading} error={error} list={data} searchStatus={searchStatus} keyword={currentKeyword}  />  
         </>
     )
