@@ -5,7 +5,11 @@ API로 JSON을 받아 목록을 LISTING 해줍니다.
 
 ## How to Run
 ```
-npm start
+// 해당 폴더 위치로 이동
+
+npm install
+
+npm run dev //새로운 크롬 창이 오픈될 것입니다.
 ```
 ## 구현 기능
 
